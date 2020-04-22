@@ -1,0 +1,30 @@
+﻿<Page x:Class="WpfHR.Pages.PagePeopleTable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHR.Pages"
+      mc:Ignorable="d" 
+      Title="PagePopleTable">
+
+    <Grid>
+        <DataGrid x:Name="DtgPeople" ItemsSource="{Binding PersonInfo}"
+                  IsReadOnly="True" FontSize="15" Padding="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding PerId}" Width="*"/>
+                <DataGridTextColumn Header="First Name" Binding="{Binding PerFirstName}" Width="3*"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding PerLastName}" Width="3*"/>
+                <DataGridTextColumn Header="Gen" Binding="{Binding PerGender}" Width="*"/>
+                <DataGridTextColumn Header="Date of birth" Binding="{Binding PerDobString}" Width="2*"/>
+
+                <DataGridTextColumn Header="Email" Binding="{Binding PerContactModel.PerEmail}" Width="5*"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding PerContactModel.PerPhone}" Width="3*"/>
+
+                <DataGridTextColumn Header="Country" Binding="{Binding PerAdressModel.PerAdrCountry}" Width="2*"/>
+                <DataGridTextColumn Header="City" Binding="{Binding PerAdressModel.PerAdrCity}" Width="3*"/>
+                <DataGridTextColumn Header="Street" Binding="{Binding PerAdressModel.PerAdrStreet}" Width="4*"/>
+                <DataGridTextColumn Header="Zip Code" Binding="{Binding PerAdressModel.PerAdrZipCode}" Width="2*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

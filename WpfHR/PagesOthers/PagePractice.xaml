@@ -1,0 +1,63 @@
+﻿<Page x:Class="WpfHR.PagesShedule.PagePractice"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHR.PagesShedule"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PagePractice">
+
+    <Grid>
+        <ListBox x:Name="ListEmployee"
+                     MouseDoubleClick="DoubleClick_Person" Grid.Row="0"
+                     HorizontalContentAlignment="Stretch">
+
+            <ListBox.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Expander IsExpanded="True">
+                                            <Expander.Header>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Key}" FontWeight="Bold" Foreground="Gray" FontSize="22" VerticalAlignment="Bottom" />
+                                                </StackPanel>
+                                            </Expander.Header>
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </ListBox.GroupStyle>
+
+            <ListBox.ItemTemplate> 
+                <DataTemplate>
+                    <Grid Width="auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding MsmEmpModel.EmpPersonModel.PerFullName}" Padding="1" FontSize="15"
+                                       Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding MsmEmpModel.EmpTimeString}" Padding="1" FontSize="13"
+                                       Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding MsmEmpModel.EmpProfessionModel.ProName}" Padding="1" FontSize="13"
+                                       Grid.Row="1" Grid.Column="0"/>
+                        <TextBlock Text="{Binding MsmFullHours}" Padding="1" FontSize="13"
+                                       Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>

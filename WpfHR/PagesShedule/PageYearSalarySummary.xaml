@@ -1,0 +1,44 @@
+﻿<Page x:Class="WpfHR.PagesShedule.PageYearSalarySummary"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHR.PagesShedule"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageYearSalarySummary">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" Grid.Row="0"
+                    Orientation="Horizontal">
+            <Button Click="Click_Back" Background="Transparent" BorderThickness="0">
+                <Image Source="/WpfHR;component/Resource/ButtonBack.png"/>
+            </Button>
+            <Label x:Name="LblYear" FontSize="20" Margin="50,0,50,0" VerticalAlignment="Center"/>
+            <Button Click="Click_Next" Background="Transparent" BorderThickness="0">
+                <Image Source="/WpfHR;component/Resource/ButtonNext.png"/>
+            </Button>
+        </StackPanel>
+        <DataGrid x:Name="dtgYearSubMod" ItemsSource="{Binding YearSummaryModel}" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Full Name" Binding="{Binding YsmEmpFullName}" Width="2*"/>
+                <DataGridTextColumn Header="January" Binding="{Binding YsmJan}" Width="*"/>
+                <DataGridTextColumn Header="February" Binding="{Binding YsmFeb}" Width="*"/>
+                <DataGridTextColumn Header="March" Binding="{Binding YsmMar}" Width="*"/>
+                <DataGridTextColumn Header="April" Binding="{Binding YsmApr}" Width="*"/>
+                <DataGridTextColumn Header="May" Binding="{Binding YsmMay}" Width="*"/>
+                <DataGridTextColumn Header="June" Binding="{Binding YsmJun}" Width="*"/>
+                <DataGridTextColumn Header="July" Binding="{Binding YsmJul}" Width="*"/>
+                <DataGridTextColumn Header="August" Binding="{Binding YsmAug}" Width="*"/>
+                <DataGridTextColumn Header="October" Binding="{Binding YsmOct}" Width="*"/>
+                <DataGridTextColumn Header="November" Binding="{Binding YsmNov}" Width="*"/>
+                <DataGridTextColumn Header="December" Binding="{Binding YsmDec}" Width="*"/>
+                <DataGridTextColumn Header="Summary" Binding="{Binding YsmYearSum}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

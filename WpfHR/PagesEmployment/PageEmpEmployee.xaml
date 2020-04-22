@@ -1,0 +1,72 @@
+﻿<Page x:Class="WpfHR.PagesEmployment.PageEmpEmployee"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHR.PagesEmployment"
+      mc:Ignorable="d" Background="Transparent"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageEmpEmployee">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ListBox x:Name="ListPeople" ItemsSource="{Binding PersonModel}"
+                 MouseDoubleClick="DoubleClick_Person" Grid.Row="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Width="auto">
+                            <TextBlock Text="{Binding PerFullName}" Padding="1" FontSize="15" />
+                            <TextBlock Text="{Binding PerContactModel.PerPhone}" Padding="1" FontSize="12"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Grid.Column="1">
+            <UniformGrid Columns="2">
+                <TextBlock Text="Person  " Margin="2" FontSize="17" HorizontalAlignment="Right"/>
+                <TextBlock x:Name="TblPerson" Margin="2" FontSize="17" Width="200"/>
+                <TextBlock Text="Employment  " Margin="2" FontSize="17" HorizontalAlignment="Right"/>
+                <ComboBox x:Name="CbxProfessions" Margin="2" FontSize="17" Width="200"
+                          ItemsSource="{Binding ProfessionModel}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ProName}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Management  " Margin="2" FontSize="17" HorizontalAlignment="Right"/>
+                <ComboBox x:Name="CbxManagement" Margin="2" FontSize="17" Width="200"
+                          ItemsSource="{Binding ManagementModel}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ManName}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Employment Date  " Margin="2" FontSize="17" HorizontalAlignment="Right"/>
+                <StackPanel Orientation="Vertical">
+                    <TextBox x:Name="TxbDateOfEmp" Margin="2" FontSize="17" Width="200" Text="YYYY-MM-DD"/>
+                    <CheckBox x:Name="CbxEmpDateCurrent" HorizontalAlignment="Center" Content="Today"/>
+                </StackPanel>
+                <TextBlock Text="Time  " Margin="2" FontSize="17" HorizontalAlignment="Right"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <RadioButton x:Name="RbtFull" Content="Full" Margin="2" FontSize="15"/>
+                    <RadioButton x:Name="RbtHalf" Content="Half" Margin="2" FontSize="15"/>
+                    <RadioButton x:Name="RbtQuoter" Content="Quoter" Margin="2" FontSize="15"/>
+                </StackPanel>
+            </UniformGrid>
+            <Button x:Name="BtnSave" Content="Save" MinHeight="25" MaxWidth="100" Margin="10"
+                    Click="Click_Save"/>
+        </StackPanel>
+    </Grid>
+</Page>

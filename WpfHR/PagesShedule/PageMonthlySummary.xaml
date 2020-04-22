@@ -1,0 +1,38 @@
+﻿<Page x:Class="WpfHR.PagesShedule.PageMonthlySummary"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHR.PagesShedule"
+      mc:Ignorable="d" Background="Transparent"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageMonthlySummary">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" Grid.Row="0"
+                    Orientation="Horizontal">
+            <Button Click="Click_Back" Background="Transparent" BorderThickness="0">
+                <Image Source="/WpfHR;component/Resource/ButtonBack.png"/>
+            </Button>
+            <Label x:Name="LblMonth" FontSize="17" Margin="50,0,50,0"/>
+            <Button Click="Click_Next" Background="Transparent" BorderThickness="0">
+                <Image Source="/WpfHR;component/Resource/ButtonNext.png"/>
+            </Button>
+        </StackPanel>
+        <DataGrid x:Name="DtgMonthlySum" ItemsSource="{Binding MonthlySummaryModel}"
+                  IsReadOnly="True" Grid.Row="1" AutoGenerateColumns="False"
+                  FontSize="15" CanUserResizeColumns="False" CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Employee Full Name" Binding="{Binding MsmEmpModel.EmpPersonModel.PerFullName}" Width="*"/>
+                <DataGridTextColumn Header="Profession (Management)" Binding="{Binding MsmEmpModel.EmpProAndMan}" Width="*"/>
+                <DataGridTextColumn Header="Hours" Binding="{Binding MsmFullHours}" Width="*"/>
+                <DataGridTextColumn Header="Gross Salary" Binding="{Binding MsmSalaryGrossString}" Width="*"/>
+                <DataGridTextColumn Header="Net Salary" Binding="{Binding MsmSalaryNetString}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
