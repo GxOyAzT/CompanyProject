@@ -17,3 +17,11 @@ Funkcjonalność aplikacji:
   - automatyczne tworzenie umowy o pracę w dokumencie .docx w oparciu o dane pracownika
   - zarządzanie grafikiem
   - miesięczne i roczne podsumowanie godzin pracy i wypłat
+
+Przećwiczone umiejętności:
+  - łączenie z bazą danych za pomocą klasy SqlConnection
+  - filtrowanie danych za pomocą technologii Linq
+  - modyfikowanie pliku .docx za pomocą kodu C#
+  - łączenie tabel za pomocą INNER JOIN, LEFT JOIN
+  - tworzenie procedur w SQL
+  - zrozumienie funkcji PIVOT() w SQL
